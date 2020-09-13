@@ -5,13 +5,13 @@ import jwt
 from jwt.exceptions import PyJWTError, InvalidTokenError
 from keycloak import KeycloakOpenID
 
-from avatar_utils.sso_helper.constants import (
+from services_toolkit.integrations.sso_helper import FlaskAuthHeader
+from services_toolkit.integrations.sso_helper.constants import (
     ITMO_SSO_SERVER,
     ITMO_REALM,
-    USER_TOKEN_AUDIENCE,
     PUBLIC_KEY_WRAPPER,
+    USER_TOKEN_AUDIENCE,
 )
-from avatar_utils.sso_helper.flask_auth_header import FlaskAuthHeader
 
 logger = getLogger()
 

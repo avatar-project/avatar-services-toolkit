@@ -6,8 +6,7 @@ from flask import Flask
 from marshmallow import ValidationError
 import requests
 
-from avatar_utils.validation import SuccessResponseSchema
-from avatar_utils.validation.constants import ServiceHTTPCodes
+from services_toolkit.validation import SuccessResponseSchema
 
 logger = getLogger(__name__)
 
@@ -34,7 +33,7 @@ def avatar_proxy_registration(swagger: Swagger,  # pylint: disable=too-many-argu
         response = requests.post(url=url, json=payload)
 
         logger.debug(f'{response.status_code} {response.reason}: {response.text}')
-        if response.status_code == ServiceHTTPCodes.OK.value:
+        if response.status_code == 200:
             registration_response = SuccessResponseSchema().loads(response.text)
     except ValidationError as err:
         logger.error(f'Incorrect response from server: {err.messages}')
