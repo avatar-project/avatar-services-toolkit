@@ -1,0 +1,11 @@
+flask>=1.1.1
+flask-sqlalchemy>=2.3.2
+environs>=8.0.0
+psycopg2-binary>=2.8.5
+requests>=2.23.0
+apispec>=3.3.1
+marshmallow>=3.7.0
+flasgger>=0.9.4
+python-keycloak~=0.21.0
+PyJWT~=1.7.1
+cryptography==3.0

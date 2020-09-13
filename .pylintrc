@@ -1,0 +1,13 @@
+[MASTER]
+ignore=migrations,venv
+load-plugins=pylint_flask_sqlalchemy
+
+[FORMAT]
+max-line-length=120
+indent-string='    '
+
+[MESSAGES CONTROL]
+disable=missing-docstring,
+        too-few-public-methods,
+        logging-fstring-interpolation,
+        cyclic-import
