@@ -3,10 +3,7 @@ from typing import Optional, Tuple, Dict
 from flask import request
 from requests import Session
 
-from avatar_utils.sso_helper.constants import (
-    AUTH_HEADER_NAME,
-    DEFAULT_TOKEN_TYPE,
-)
+from services_toolkit.integrations.sso_helper.constants import AUTH_HEADER_NAME, DEFAULT_TOKEN_TYPE
 
 
 class FlaskAuthHeader:
