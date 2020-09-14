@@ -1,15 +1,23 @@
 import setuptools
+from os import path
+
+here = path.abspath(path.dirname(__file__))
+
+about = {}
+about_path = path.join(here, 'services_toolkit', '__version__.py')
+with open(about_path, 'r', encoding='utf-8') as f:
+    exec(f.read(), about)
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='Avatar Services Toolkit',
-    version='0.1.2',
-    description='Toolkit for services development for avatar ecosystem',
+    name=about['__title__'],
+    version=about['__version__'],
+    description=about['__description__'],
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='',
+    url=about['__url__'],
     packages=setuptools.find_packages(),
     install_requires=[
         'flask>=1.1.1',

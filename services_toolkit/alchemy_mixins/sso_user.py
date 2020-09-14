@@ -18,8 +18,8 @@ class SSOUserMixin:
     def __new__(cls, db: SQLAlchemy):
         fields = dict(
             sso_id=db.Column(db.String, nullable=False, index=True),
-            latest_session_started_at=db.Column(db.DateTime(timezone=timezone.utc), nullable=True, default=None),
-            latest_session_request_at=db.Column(db.DateTime(timezone=timezone.utc), nullable=True, default=None),
+            latest_session_started_at=db.Column(db.DateTime(timezone=True), nullable=True, default=None),
+            latest_session_request_at=db.Column(db.DateTime(timezone=True), nullable=True, default=None),
         )
         return type('_SSOUserMixin', (SSOUserBase,), fields)
 
