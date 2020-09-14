@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='Avatar Services Toolkit',
-    version='0.1.0',
+    version='0.1.1',
     description='Toolkit for services development for avatar ecosystem',
     long_description=long_description,
     long_description_content_type='text/markdown',
