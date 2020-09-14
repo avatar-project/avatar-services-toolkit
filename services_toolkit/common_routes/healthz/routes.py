@@ -6,7 +6,7 @@ from typing import Optional, Dict, Any, List, Union
 from flasgger import swag_from
 from flask import Blueprint
 
-from services_toolkit.common_routes.healthz import CheckerBase
+from services_toolkit.common_routes.healthz.checker_base import CheckerBase
 from services_toolkit.common_routes.healthz.schemas import RootResponseSchema
 from services_toolkit.common_routes.healthz.utils import make_app_info
 
