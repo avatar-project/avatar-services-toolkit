@@ -32,3 +32,6 @@ jobs:
     - name: Lint with mypy
       run: |
         mypy ./services_toolkit --pretty
+    - name: Package installation
+      run: |
+        pip install .
