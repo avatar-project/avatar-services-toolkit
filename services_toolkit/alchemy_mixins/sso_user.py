@@ -34,13 +34,13 @@ class SSOUserBase:
     def auth_callback(cls: type,
                       token: str):
 
-        config_client_id = current_app.config.get('SSO_CLIENT_ID')
-        sso_client_id = config_client_id or env.str('SSO_CLIENT_ID', default='digital-avatar')
-
-        is_verify = current_app.config.get('SSO_VERIFY_TOKEN') or True
-
+        sso_client_id = current_app.config.get('SSO_CLIENT_ID')
+        is_verify = current_app.config.get('SSO_VERIFY_TOKEN', True)
         sso_helper = SSOHelper(client_id=sso_client_id)
         payload = sso_helper.extract_payload(token=token, verify=is_verify)
+
+        if payload is None or 'sub' not in payload:
+            return None
 
         sso_id = payload['sub']
         user = cls.ensure(sso_id=sso_id)  # pylint: disable=no-member
