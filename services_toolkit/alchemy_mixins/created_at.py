@@ -1,15 +1,15 @@
-from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, timezone
 
-from services_toolkit.alchemy_mixins import TimeCastMixin
+from flask_sqlalchemy import SQLAlchemy
 
 
 class CreatedAtMixin:
     def __new__(cls, db: SQLAlchemy):
         fields = dict(
             created_at=db.Column(db.DateTime(timezone=True),
-                                 default=TimeCastMixin.utc_now),
+                                 default=datetime.utcnow().replace(tzinfo=timezone.utc)),
             updated_at=db.Column(db.DateTime(timezone=True),
-                                 default=TimeCastMixin.utc_now,
-                                 onupdate=TimeCastMixin.utc_now)
+                                 default=datetime.utcnow().replace(tzinfo=timezone.utc),
+                                 onupdate=datetime.utcnow().replace(tzinfo=timezone.utc))
         )
-        return type('_CRUDMixin', (object,), fields)
+        return type('_CreatedAtMixin', (object,), fields)
