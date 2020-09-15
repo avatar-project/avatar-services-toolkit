@@ -6,4 +6,4 @@ class AttributedMixinBase(ABC):
                 class_name: str,
                 parent_classes: tuple,
                 **kwargs):
-        return type(class_name, parent_classes, **kwargs)
+        return type(class_name, parent_classes, kwargs)
