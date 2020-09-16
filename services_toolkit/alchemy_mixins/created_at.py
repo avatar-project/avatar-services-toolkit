@@ -1,8 +1,5 @@
-from datetime import datetime, timezone
 from sqlalchemy import Column, DateTime
 from sqlalchemy.sql import func
-
-from flask_sqlalchemy import SQLAlchemy
 
 
 class CreatedAtMixin:

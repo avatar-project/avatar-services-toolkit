@@ -4,7 +4,6 @@ from typing import Optional
 
 from environs import Env
 from flask import current_app
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, DateTime, String
 
 from services_toolkit.integrations.sso_helper import SSOHelper
@@ -24,7 +23,6 @@ class SSOUserMixin:
     latest_session_request_at = Column(
         DateTime(timezone=True), nullable=True, default=None
     )
-
 
     @classmethod
     def auth_callback(cls: type, token: str):

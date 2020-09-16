@@ -10,12 +10,13 @@ from services_toolkit.alchemy_mixins import CRUDMixin
 logger = getLogger(__name__)
 
 
-def make_model(table_name: str, db: Optional[SQLAlchemy]) -> Type:  # pylint: disable=invalid-name,
+def make_model(
+    table_name: str, db: Optional[SQLAlchemy]
+) -> Type:  # pylint: disable=invalid-name,
     model = type(
-        'ActivitiesModel', (
-            CRUDMixin(db),
-            db.Model
-        ), dict(
+        "ActivitiesModel",
+        (CRUDMixin(db), db.Model),
+        dict(
             __tablename__=table_name,
             id=Column(Integer(), primary_key=True),
             sso_id=Column(String(), nullable=True, default=None),
@@ -23,9 +24,13 @@ def make_model(table_name: str, db: Optional[SQLAlchemy]) -> Type:  # pylint: di
             method=Column(String(10), nullable=False),
             request=Column(Text(), nullable=False),
             response=Column(Text(), nullable=True),
-            ts=Column(DateTime(timezone=True), nullable=False,
-                         default=datetime.utcnow().replace(tzinfo=timezone.utc)),
+            ts=Column(
+                DateTime(timezone=True),
+                nullable=False,
+                default=datetime.utcnow().replace(tzinfo=timezone.utc),
+            ),
             duration=Column(Float(), nullable=True),
             status=Column(String, nullable=True),
-        ))
+        ),
+    )
     return model
