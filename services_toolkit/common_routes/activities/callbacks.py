@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from logging import getLogger
 from typing import Optional, Type
 
@@ -30,7 +30,7 @@ def after_app_request(response: Response) -> Response:
     data = request.data.decode()
     if not record:
         return response
-    record.update(duration=(datetime.utcnow() - record.ts).total_seconds(),
+    record.update(duration=(datetime.now(timezone.utc) - record.ts).total_seconds(),
                   status=response.status,
                   response=data)
     return response
