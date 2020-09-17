@@ -10,9 +10,7 @@ from services_toolkit.alchemy_mixins import CRUDMixin
 logger = getLogger(__name__)
 
 
-def make_model(
-    table_name: str, db: Optional[SQLAlchemy]
-) -> Type:  # pylint: disable=invalid-name,
+def make_model(table_name: str, db: Optional[SQLAlchemy]) -> Type:  # pylint: disable=invalid-name
     model = type(
         "ActivitiesModel",
         (CRUDMixin(db), db.Model),
