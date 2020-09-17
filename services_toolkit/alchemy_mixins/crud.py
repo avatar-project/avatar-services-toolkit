@@ -2,7 +2,7 @@ from typing import Optional, Any
 
 from flask_sqlalchemy import SQLAlchemy
 
-from services_toolkit.alchemy_mixins.heplers import AttributedMixinBase
+from services_toolkit.alchemy_mixins.helpers import AttributedMixinBase
 
 
 class CRUDMixin(AttributedMixinBase):
