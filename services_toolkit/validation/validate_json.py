@@ -30,7 +30,7 @@ class route_validator:  # pylint: disable=invalid-name
                  methods: Union[str, Sequence[str]] = DEFAULT_VALIDATE_METHOD):
 
         self.request_schema = request_schema() if request_schema else None
-        self.response_schema = response_schema() if request_schema else None
+        self.response_schema = response_schema() if response_schema else None
         self.methods: Set[str] = set(m.upper().strip() for m in methods)
         self.log_prefix = None
 
