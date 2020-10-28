@@ -1,10 +1,7 @@
-from logging import getLogger
-
 from typing import Dict, Tuple, Any
+
 from flask import jsonify
 from flask.wrappers import Response
-
-LOGGER = getLogger(__name__)
 
 
 def create_response(
